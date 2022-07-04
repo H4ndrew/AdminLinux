@@ -5,5 +5,5 @@ NFILES=$(shuf -i 5-10 -n 1)
 
 for i in `eval echo {1..$NFILES}`
     do
-        sudo dd bs=1M count=$(($RANDOM%MAX_SIZE + $MIN_SIZE)) if=/dev/urandom of=/home/${USER}/file$i
+        sudo dd bs=1M count=$(($RANDOM%MAX_SIZE + $MIN_SIZE)) if=/dev/urandom of=/home/${USER}/file00$i
     done
