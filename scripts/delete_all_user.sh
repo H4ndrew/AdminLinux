@@ -14,7 +14,7 @@ while read line ; do
         sudo mv /home/${USERNAME}/ /home/deleted-users/${USERNAME}/
         echo "successfully deleted ${USERNAME}"    
     else
-        echo "user ${USERNAME} do not exist"
+        echo "user ${USERNAME} does not exist"
         continue
     fi
 done < ${FILE}

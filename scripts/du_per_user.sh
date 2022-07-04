@@ -16,8 +16,11 @@ do
         DISK_USAGE+=($(du -s /home/${USERLIST[$i]} 2> >(grep -v 'Permission denied')))
     fi
 done
+# echo ${DISK_USAGE[@]}
+# echo "${#USERLIST[@]}"
+# echo "${#DISK_USAGE[@]}"
 
-for i in {0..18}
+for i in "${!DISK_USAGE[@]}"
 do
     if [ $(($i%2)) -eq 0 ];then
         H+=( [ ${DISK_USAGE[$i]} ]=${DISK_USAGE[$i+1]} )
@@ -28,8 +31,7 @@ function odd_even_sort(){
     n=$1
     array=("$@")
     declare -A dict
-    declare -A sorted
-    array_key=("${array[@]:0:(${#array[@]}-2)/2}")
+    array_key=("${array[@]:0:(${#array[@]})/2}")
     array_value=("${array[@]:(${#array[@]}-2)/2:${#array[@]}}")
     isSorted=0
     tmp=0
@@ -67,8 +69,7 @@ function odd_even_sort(){
 
 odd_even_sort "${!H[@]}" "${H[@]}"
 
-for i in {0..4}
+for i in ${!array_key[@]}
 do
-    SH=${H[${array_key[$i]}]}
-    echo ${SH[@]}| cut -d'/' -f2-
+    echo ${H[${array_key[$i]}]} | cut -d'/' -f3
 done
