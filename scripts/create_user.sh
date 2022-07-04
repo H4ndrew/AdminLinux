@@ -1,10 +1,10 @@
 #!/bin/bash
 
 FILE=$1
-ARUN_PATH="/home/arun/"
-BASHRC_PATH="${ARUN_PATH}.bashrc"
-BASH_LOGOUT_PATH="${ARUN_PATH}.bash_logout"
-BASH_PROFILE_PATH="${ARUN_PATH}.bash_profile"
+HOME_PATH="/home/arun/projet/bashrc/"
+BASHRC_PATH="${HOME_PATH}.bashrc"
+BASH_LOGOUT_PATH="${HOME_PATH}.bash_logout"
+BASH_PROFILE_PATH="${HOME_PATH}.bash_profile"
 MIN_SIZE=5       
 MAX_SIZE=50
 NFILES=$(shuf -i 5-10 -n 1)
