@@ -15,12 +15,11 @@ do
     fi
 done
 
-for i in "${!UNIQUE[@]}"
+for i in "${UNIQUE[@]}"
     do
-        if getent group ${UNIQUE[$i]} >/dev/null 2&>1;then 
-            sudo groupdel ${UNIQUE[i]}
+        if getent group $i >/dev/null 2&>1;then 
+            sudo groupdel -f $i
         else
-            echo "group ${UNIQUE[$i]} doesn't exit"
+            echo "group $i doesn't exit"
         fi
     done
-done
